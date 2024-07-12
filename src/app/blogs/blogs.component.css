@@ -1,0 +1,23 @@
+.card {
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+.card:hover {
+  transform: scale(1.025);
+  box-shadow: 10px 10px 20px -3px rgba(0, 0, 0, 0.2)
+}
+
+.card-body p {
+  font-size: 14px;
+  margin: 0 0 20px;
+}
+.blog-info {
+  display: flex;
+  margin-top: auto;
+}
+
+.blog-time small {
+  color: #545d7a;
+}

@@ -1,0 +1,160 @@
+<div *ngIf="isLoading" style="text-align: center">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+
+<div
+  class="card mx-auto"
+  style="max-width: 350px"
+  *ngIf="isLoginPage && !isLoading"
+>
+  <div class="card-header">
+    <h5 class="card-title mb-0">Login</h5>
+  </div>
+  <div class="alert alert-danger mb-0 d-flex justify-content-between align-items-center" *ngIf="errorMsg">
+    <p class="mb-0">{{ errorMsg }}</p>
+    <button class="btn btn-danger" type="button" (click)="closeError()">X</button>
+  </div>
+  <div class="card-body">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit('login')">
+      <div class="mb-2">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          formControlName="email"
+        />
+      </div>
+      <div class="mb-2">
+        <label for="password">Password</label>
+        <div class="input-group">
+          <input
+            [type]="showPassword ? 'text' : 'password'"
+            class="form-control"
+            id="password"
+            formControlName="password"
+          />
+          <button
+            type="button"
+            class="btn btn-outline-secondary border-start-0 border border-top border-bottom"
+            style="border-top-left-radius: 0; border-bottom-left-radius: 0"
+            (click)="togglePasswordVisibility()"
+          >
+            <i
+              class="bi"
+              [ngClass]="showPassword ? 'bi-eye-slash' : 'bi-eye'"
+            ></i>
+          </button>
+        </div>
+      </div>
+      <div class="d-grid gap-2 mb-2">
+        <button type="submit" class="btn btn-primary">Login</button>
+      </div>
+      <a class="card-link" (click)="toggleAuth()" style="cursor: pointer"
+        >Create New Account?</a
+      >
+    </form>
+  </div>
+</div>
+
+<div class="card mx-auto" style="max-width: 350px" *ngIf="!isLoginPage && !isLoading">
+  <div class="card-header">
+    <h5 class="card-title mb-0">Register</h5>
+  </div>
+  <div class="alert alert-danger mb-0 d-flex justify-content-between align-items-center" *ngIf="errorMsg">
+    <p class="mb-0">{{ errorMsg }}</p>
+    <button class="btn btn-danger" type="button" (click)="closeError()">X</button>
+  </div>
+
+  <div class="card-body">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit('register')">
+      <div class="mb-2 row">
+        <div class="col">
+          <label for="firstName">First Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="firstName"
+            formControlName="firstName"
+          />
+        </div>
+        <div class="col">
+          <label for="lastName">Last Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="lastName"
+            formControlName="lastName"
+          />
+        </div>
+      </div>
+      <div class="mb-2">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          formControlName="email"
+        />
+      </div>
+      <div class="mb-2 position-relative">
+        <label for="password">Password</label>
+        <div class="input-group">
+          <input
+            [type]="showPassword ? 'text' : 'password'"
+            class="form-control"
+            id="password"
+            formControlName="password"
+          />
+
+          <button
+            type="button"
+            class="btn btn-outline-secondary border-start-0 border border-top border-bottom"
+            style="border-top-left-radius: 0; border-bottom-left-radius: 0"
+            (click)="togglePasswordVisibility()"
+          >
+            <i
+              class="bi"
+              [ngClass]="showPassword ? 'bi-eye-slash' : 'bi-eye'"
+            ></i>
+          </button>
+        </div>
+      </div>
+      <div class="mb-2 position-relative">
+        <label for="confirmPassword">Confirm Password</label>
+        <div class="input-group">
+          <input
+            [type]="showConfirmPassword ? 'text' : 'password'"
+            class="form-control"
+            id="confirmPassword"
+            formControlName="confirmPassword"
+          />
+
+          <button
+            type="button"
+            class="btn btn-outline-secondary border-start-0 border border-top border-bottom"
+            style="border-top-left-radius: 0; border-bottom-left-radius: 0"
+            (click)="toggleConfirmPasswordVisibility()"
+          >
+            <i
+              class="bi"
+              [ngClass]="showConfirmPassword ? 'bi-eye-slash' : 'bi-eye'"
+            ></i>
+          </button>
+        </div>
+      </div>
+      <div class="d-grid gap-2 mb-2">
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="!registerForm.valid"
+        >
+          Register
+        </button>
+      </div>
+      <a class="card-link" (click)="toggleAuth()" style="cursor: pointer"
+        >Already Have Account?</a
+      >
+    </form>
+  </div>
+</div>

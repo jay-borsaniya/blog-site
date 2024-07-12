@@ -1,0 +1,23 @@
+.navbar {
+  margin: 10px 0;
+}
+
+.header-tab {
+  cursor: pointer;
+  padding: 10px 20px;
+  height: 100%;
+}
+
+.header-tab:hover {
+  background-color: #ddd;
+}
+
+.active {
+  background-color: #ddd;
+}
+
+@media (max-width: 400px) {
+    .header-tab {
+      padding: 5px 10px;
+    }
+  }

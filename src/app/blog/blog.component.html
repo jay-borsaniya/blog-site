@@ -1,0 +1,38 @@
+<div class="card my-2" *ngIf="blog">
+  <div class="blog-container">
+    <div class="blog-header">
+      <img class="blog-cover" src="{{ blog.photo_url }}" />
+    </div>
+
+    <div class="blog-body">
+      <div class="blog-title mb-4">
+        <h1>
+          <a>{{ blog.title }}</a>
+        </h1>
+        <div class="blog-tags">
+          <ul>
+            <li>
+              <a>Category - {{ blog.category }}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="blog-summary">
+        <h4>{{ blog.description }}</h4>
+      </div>
+      <div class="blog-summary">
+        <p>{{ blog.content_text }}</p>
+      </div>
+    </div>
+
+    <div class="blog-footer">
+      <ul>
+        <li class="published-date">Created At - {{ blog.created_at | date }}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!blog" style="text-align: center">
+  <app-loading-spinner></app-loading-spinner>
+</div>

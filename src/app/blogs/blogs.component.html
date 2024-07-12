@@ -1,0 +1,26 @@
+<div *ngIf="isLoading" style="text-align: center">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+<div class="container my-4" *ngIf="!isLoading">
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-5">
+    <div class="col" *ngFor="let blog of blogs">
+      <a class="card h-100" [routerLink]="['/blog', blog.id]">
+        <img src="{{ blog.photo_url }}" class="card-img-top" alt="Blog Image" />
+        <div class="card-body">
+          <h5 class="card-title">{{ blog.title }}</h5>
+          <p class="card-text">{{ blog.description }}</p>
+          <p class="card-text">
+            <small class="text-muted">Updated At - {{ blog.updated_at }}</small>
+          </p>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+<div *ngIf="isInfiniteScrollLoading" style="text-align: center">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+<div *ngIf="isLimitReached">
+  <hr>
+  <h2 class="text-center">Maximum Limit Reached</h2>
+</div>
