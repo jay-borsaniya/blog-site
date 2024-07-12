@@ -123,3 +123,12 @@
   border-radius: 3px;
   padding: 0 0.5rem;
 }
+
+.category-tag {
+  color: black !important;
+  font-weight: 800 !important;
+}
+
+.category-tag:hover {
+  color: #ff4d4d !important;
+}
