@@ -1,5 +1,5 @@
 export const environment = {
   PRODUCTION: true,
-  API_KEY: '<Production-API-KEY>',
+  API_KEY: 'AIzaSyB70jzp33EEOiuDZLAh6Dq942mRYV_NHqE',
   API: 'https://recipe-book-8c99a-default-rtdb.asia-southeast1.firebasedatabase.app',
 };
