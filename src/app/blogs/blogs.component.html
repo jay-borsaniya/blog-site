@@ -10,7 +10,9 @@
           <h5 class="card-title">{{ blog.title }}</h5>
           <p class="card-text">{{ blog.description }}</p>
           <p class="card-text">
-            <small class="text-muted">Updated At - {{ blog.updated_at }}</small>
+            <small class="text-muted"
+              >Updated At - {{ blog.updated_at | date : "short" }}</small
+            >
           </p>
         </div>
       </a>
@@ -21,6 +23,6 @@
   <app-loading-spinner></app-loading-spinner>
 </div>
 <div *ngIf="isLimitReached">
-  <hr>
+  <hr />
   <h2 class="text-center">Maximum Limit Reached</h2>
 </div>
